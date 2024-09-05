@@ -5,20 +5,19 @@ import lombok.*;
 
 @Getter
 @Setter
-@Table(name = "jugadores_futbol")
+@EqualsAndHashCode
+@ToString
+@Table(name = "ciudad_equipo")
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Jugador {
+public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "codigo", nullable = false)
-    private Long codigo;
+    @Column(name = "codigo")
+    private long codigo;
 
+    @Column(name = "nombre")
     private String nombre;
-
-    @ManyToOne(targetEntity = Equipo.class)
-    @JoinColumn(name = "equipo_codigo")
-    private Equipo equipo;
 }

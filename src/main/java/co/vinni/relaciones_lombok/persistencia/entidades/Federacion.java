@@ -3,22 +3,25 @@ package co.vinni.relaciones_lombok.persistencia.entidades;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
-@Table(name = "jugadores_futbol")
+@Table(name = "federacion")
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Jugador {
+public class Federacion {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "codigo", nullable = false)
-    private Long codigo;
+    @Column(name = "codigo")
+    private long codigo;
 
+    @Column(name = "nombre")
     private String nombre;
 
-    @ManyToOne(targetEntity = Equipo.class)
-    @JoinColumn(name = "equipo_codigo")
-    private Equipo equipo;
+    @OneToMany(targetEntity = Equipo.class, mappedBy = "federacion")
+    private List<Equipo> equipoList;
+
 }

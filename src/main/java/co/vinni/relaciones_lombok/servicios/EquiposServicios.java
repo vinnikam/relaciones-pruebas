@@ -1,4 +1,4 @@
-package co.vinni.relaciones_lombok.persistencia.servicios;
+package co.vinni.relaciones_lombok.servicios;
 
 import co.vinni.relaciones_lombok.persistencia.entidades.Equipo;
 import co.vinni.relaciones_lombok.persistencia.repositorios.EquipoRepository;
